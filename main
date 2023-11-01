@@ -6,7 +6,7 @@
 
 <a>비디오 자동테스트</a>
     <video class="video" autoplay controls>
-        <source type="video/mp4" src="./images/video.mp4" >
+        <source type="video/mp4" src="images/video.mp4" >
     </video>
 </body>
 </html>

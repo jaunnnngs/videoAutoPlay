@@ -43,12 +43,12 @@
     
     video.pause();
     video.muted = true;
-    video.play();
-
+    
     // video.muted = false;
     // video.volume = 1;
-
+    
     document.body.addEventListener("click", function () {
+        video.play();
         video.muted = false;
     });
 

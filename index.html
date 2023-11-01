@@ -9,8 +9,8 @@
 <!-- Autoplay is allowed. -->
 
 <!-- <iframe src="myvideo.html" onload="autoResize(this)" scrolling="no" frameborder="0" allow="autoplay" width="100%" height="500%"> -->
-    <video id="myVideo" class="video" muted autoplay playsinline controls width="50%" height="50%">
-        <source type="video/mp4" src="images/video.mp4" >
+    <video id="myVideo" class="video" playsinline controls width="50%" height="50%">
+        <source type="video" >
     </video>
 
 
@@ -22,6 +22,35 @@
     <!-- <script src="js/custom.js"></script> -->
 
 <script>
+    // 오디오 API 권한
+    var AudioContext;
+    var audioContext;
+
+    window.onload = function() {
+        navigator.mediaDevices.getUserMedia({ audio: true }).then(() => {
+            AudioContext = window.AudioContext || window.webkitAudioContext;
+            audioContext = new AudioContext();
+        }).catch(e => {
+            console.error(`Audio permissions denied: ${e}`);
+        });
+    }
+
+    // 비디오 컨트롤
+    var video = document.getElementById("myVideo");
+    video.src = 'images/video.mp4';
+    video.load();
+    
+    
+    video.pause();
+    video.muted = true;
+    video.play();
+
+    // video.muted = false;
+    // video.volume = 1;
+
+    document.body.addEventListener("click", function () {
+        video.muted = false;
+    });
 
     //iframe resize
     // function autoResize(i)

@@ -1,12 +1,35 @@
 <!DOCTYPE html>
 <html lang="ko">
 
-<head></head>
+<head>
+
+</head>
 <body>
 
-<a>비디오 자동테스트</a>
-    <video class="video" autoplay controls>
+<!-- Autoplay is allowed. -->
+
+<!-- <iframe src="myvideo.html" onload="autoResize(this)" scrolling="no" frameborder="0" allow="autoplay" width="100%" height="500%"> -->
+    <video id="myVideo" class="video" muted autoplay playsinline controls width="50%" height="50%">
         <source type="video/mp4" src="images/video.mp4" >
     </video>
+
+
+
 </body>
+
+
+	<!-- contents -->
+    <!-- <script src="js/custom.js"></script> -->
+
+<script>
+
+    //iframe resize
+    function autoResize(i)
+    {
+        var iframeHeight=
+        (i).contentWindow.document.body.scrollHeight;
+        (i).height=iframeHeight+20;
+    }
+
+</script>
 </html>
